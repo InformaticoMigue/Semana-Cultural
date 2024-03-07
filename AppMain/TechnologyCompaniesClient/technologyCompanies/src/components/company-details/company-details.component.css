@@ -1,0 +1,28 @@
+.bg-details-title {
+    background-image: url("../../assets/img/banner-inner-page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.animation {
+    animation-name: move-shape;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.inner {
+    background-image: linear-gradient(270.07deg, rgb(0, 43, 152) 0.07%, rgb(0, 6, 12) 99.95%);
+}
+
+
+@keyframes move-shape {
+    0% {
+      transform: translateY(-5%);
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-5%);
+    }
+  }

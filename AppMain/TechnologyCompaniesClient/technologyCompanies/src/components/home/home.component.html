@@ -1,0 +1,80 @@
+<section class="mt-24 flex flex-col gap-20">
+    <article class="px-40" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+        <article class="flex flex-col gap-3">
+            <div class="flex gap-2 items-center">
+                <img class="object-contain" src="../../assets/img/icon-top-services.png" alt="">
+                <h1 class="text-xl text-blue-500">Que ofrecen</h1>
+            </div>
+            <h1 class="mb-16 text-4xl font-bold">Todas las soluciones empresariales</h1>
+        </article>
+        <p-carousel [value]="solutions" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="10000">
+            <ng-template pTemplate="item" let-solution>
+                <div class=" m-2 text-center px-3">
+                    <app-solution-card [solution]="solution"></app-solution-card>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </article>
+
+    <article data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom" class="bg-blue-50 relative">
+        <div class="px-40 grid grid-cols-2 py-20 z-20">
+            <div class="relative">
+                <img src="../../assets/img/about-circle.png" alt="" class="z-10 absolute right-28 -top-24 ">
+                <img src="../../assets/img/about-image1.jpg" alt="" class="z-20 rounded-lg relative">
+            </div>
+            <div class="flex flex-col">
+                <div class="flex gap-2 items-center">
+                    <img class="object-contain" src="../../assets/img/icon-top-services.png" alt="">
+                    <h1 class="text-xl text-blue-500">Ranking</h1>
+                </div>
+                <div class="flex flex-col gap-5 mt-2">
+                    <h1 class="text-4xl font-bold ">Mejores compañías</h1>
+                    <p>Acontinuacion mostraremos algunas de las dos compañías tecnológicas mas grandes segun número de
+                        empleados e ingresos anuales.</p>
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="flex gap-4 shadow-md">
+                            <div class="size-24 bg-blue-200 flex items-center justify-center text-blue-600 text-4xl">
+                                <i class="fa-solid fa-sack-dollar"></i>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h1 class="text-2xl font-semibold">{{companyMostAnualIncomme?.name}}</h1>
+                                <p>Con un salario anual de {{companyMostAnualIncomme?.annualIncome?.toString()?.substring(0,3)}} mil millones</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 shadow-md">
+                            <div class="size-24 bg-blue-200 flex items-center justify-center text-blue-600 text-4xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h1 class="text-2xl font-semibold">{{companyMostEmployees?.name}}</h1>                                
+                                <p>Con un total de {{companyMostEmployees?.numberEmployees?.toString()?.substring(0,3)}} mil empleados</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Recordamos que informamos de algunas de las empresas mas relevantes actualmente en el mercado de la informática, para tener mas informacion. Pulse lo siguiente:</p>
+                    <div class="grid grid-cols-2">
+                        <div class="flex flex-col text-center gap-4">
+                            <h1 class="text-xl font-semibold">{{companyMostAnualIncomme?.name}}</h1>
+                            <a [routerLink]="['company', companyMostAnualIncomme?.id]" class="w-1/2 mx-auto p-3 rounded-md bg-gradient-to-r text-white from-blue-500 to-blue-800">
+                                Saber mas
+                            </a>
+                        </div>
+                        <div class="flex flex-col text-center gap-4">
+                            <h1 class="text-xl font-semibold">{{companyMostEmployees?.name}}</h1>
+                           <a [routerLink]="['company', companyMostEmployees?.id]" class="w-1/2 mx-auto p-3 rounded-md bg-gradient-to-r text-white from-blue-500 to-blue-800">
+                            Saber mas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <img class="absolute top-3/4 -z-10 animated-translate" src="../../assets/img/about-line.png" alt="">
+    </article>
+    <article data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+        <app-contact></app-contact>
+    </article>
+    <article data-aos="zoom-in-out" data-aos-duration="1000" data-aos-anchor-placement="center-bottom" class="px-40">
+        <app-summary-all-companies></app-summary-all-companies>
+    </article>
+</section>

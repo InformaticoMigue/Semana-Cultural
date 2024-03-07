@@ -1,0 +1,56 @@
+@if (isCharged) {
+    <section class="flex flex-col gap-20">
+        <article class="bg-details-title overflow-hidden h-96 relative">
+            <div class="relative px-40 h-full flex justify-center gap-5 flex-col text-white">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent to-blue-800 opacity-80"></div>
+                <div class="relative z-10 flex flex-col gap-5">
+                  <h1 class="text-4xl">{{company.name}}</h1>
+                  <div class="flex gap-2 items-center">
+                    <p>Home</p>
+                    <i class="fa-solid fa-angles-right"></i>
+                    {{company.name}}
+                  </div>
+                </div>
+              </div>
+              
+            <div class="animation absolute right-0 top-0">
+                <img src="../../assets/img/inner-banner-shape3.png" alt="">
+            </div>
+            <div class="absolute bottom-0">
+                <img src="../../assets/img/inner-banner-shape1.png" alt="">
+            </div>
+        </article>
+    
+        <article data-aos="zoom-in" data-aos-duration="1000" class="px-40">
+            <div class="flex flex-col gap-4">
+                <div class="flex text-blue-500 items-center gap-3">
+                    <img class="object-contain" src="../../assets/img/icon-top-services.png" alt="">
+                    <h2>SERVICIOS</h2>
+                </div>
+                <h1 class="text-3xl">Todas las soluciones empresariales de {{company.name}}</h1>
+                <div>
+                    <p-carousel [value]="company.solutions" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="10000">
+                        <ng-template pTemplate="item" let-solution>
+                            <div class=" m-2 text-center px-3">
+                                <app-solution-card [solution]="solution"></app-solution-card>
+                            </div>
+                        </ng-template>
+                    </p-carousel>        
+                </div>
+            </div>
+        </article>
+    
+        <article data-aos="zoom-in" data-aos-duration="1000" class="flex flex-col gap-10">
+            <div class="flex gap-3 text-3xl justify-center items-center">
+                <i class="fa-solid fa-location-dot text-blue-500"></i>
+                <h1>Sedes mas importantes de {{company.name}} alrededor del mundo</h1>
+            </div>
+            <app-map-company-locations [locations]="company.locations"></app-map-company-locations>
+        </article>
+        
+        <article>
+
+        </article>
+    
+    </section>    
+}

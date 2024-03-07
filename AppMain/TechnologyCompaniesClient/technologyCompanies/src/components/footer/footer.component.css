@@ -1,0 +1,6 @@
+.bg-footer {
+    background-image: url("../../assets/img/footer-shadow-shape.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

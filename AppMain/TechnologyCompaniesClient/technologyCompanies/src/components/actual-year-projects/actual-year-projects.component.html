@@ -1,0 +1,17 @@
+<div class="pr-40 flex flex-col h-full gap-12">
+    <div class="flex flex-col gap-2">
+        <div class="flex gap-3 items-center mt-20">
+            <img src="../../assets/img/icon-top-services.png" alt="">
+            <p class="text-blue-500">ALGUNOS PROYECTOS</p>
+        </div>
+        <h1 class="text-4xl font-semibold">Proyectos que han empezado este año</h1>
+    </div>
+    <p>Descubre una selección de proyectos recientemente iniciados en el presente año, cada uno representando una nueva aventura en desarrollo y creatividad.</p>
+    <p-carousel class="mt-10" [numVisible]="1" [numScroll]="1" [value]="projectsThisAnual" [autoplayInterval]="10000" [circular]="false">
+        <ng-template pTemplate="item" let-project>
+            <div class=" m-2 text-center px-3">
+                <app-project-actual-year-card [projectActualYear]="project"></app-project-actual-year-card>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

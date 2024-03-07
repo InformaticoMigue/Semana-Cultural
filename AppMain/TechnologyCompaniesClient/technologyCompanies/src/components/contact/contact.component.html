@@ -1,0 +1,51 @@
+<article class="bg-contact grid grid-cols-2 gap-5">
+    <div class="flex items-center pl-40">
+        <div class="gap-5 bg-gradient-to-r text-white flex flex-wrap w-full p-5 flex-col from-blue-500 to-blue-800">
+            <div class="flex flex-col gap-2">
+                <div class="flex gap-2 items-center">
+                    <svg width="28" height="12" viewBox="0 0 28 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.75" y="0.75" width="18.5" height="10.5" rx="5.25" stroke="white" stroke-width="1.5">
+                        </rect>
+                        <rect x="8" width="20" height="12" rx="6" fill="white"></rect>
+                    </svg>
+                    <h1>CONTACTA CON NOSOTROS</h1>
+                </div>
+                <h1 class="text-4xl font-bold">Escríbenos</h1>
+            </div>
+            <form [formGroup]="formContact" class="flex flex-col gap-5">
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-start" for="name">Indique su nombre</label>
+                        <input formControlName="name" pInputText class="p-2 text-black" type="text">
+                        <small>El nombre es obligatorio</small>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-start" for="email">Indique su email</label>
+                        <input formControlName="email" pInputText class="p-2 text-black" type="text">
+                        <small>El email es obligatorio</small>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-start" for="asunto">Indique el asunto</label>
+                        <input formControlName="subject" pInputText class="p-2 text-black" type="text">
+                        <small>El asunto es obligatorio</small>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-start" for="phone">Indique su teléfono</label>
+                        <input formControlName="phone" pInputText class="p-2 text-black" type="text">
+                        <small>El teléfono es obligatorio</small>
+                    </div>
+                </div>
+                <div class="text-white flex flex-col gap-2">
+                    <h1>Mensaje</h1>
+                    <textarea formControlName="message" class="text-black w-full p-2" rows="5" cols="30" pInputTextarea
+                        [autoResize]="false"></textarea>
+                    <small>El mensaje es obligatorio</small>
+                </div>
+                <button class="h-20 shadow-md"
+                    [ngClass]="formContact.invalid ? 'bg-gray-700 text-gray-400' : ' bg-black'"
+                    [disabled]="formContact.invalid">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <app-actual-year-projects></app-actual-year-projects>    
+</article>

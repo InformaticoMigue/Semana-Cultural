@@ -1,0 +1,18 @@
+.animated-translate {
+    animation-name: animate-translate;
+    animation-timing-function: ease-in-out; /* Función de temporización suave */
+    animation-duration: 5s; /* Duración de la animación */
+    animation-iteration-count: infinite; /* Para que se repita infinitamente */
+}
+
+@keyframes animate-translate {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-30%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}

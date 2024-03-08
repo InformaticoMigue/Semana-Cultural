@@ -9,7 +9,7 @@ import { Observable, catchError, find, map, max, throwError } from 'rxjs';
 export class CompanyService {
 
   private httpClient = inject(HttpClient);
-  private companies: Observable<Company[]> = this.httpClient.get<Company[]>("http://localhost:8080/companies");
+  private companies: Observable<Company[]> = this.httpClient.get<Company[]>("http://localhost:8081/companies");
 
   getAllCompanies(): Observable<Company[]> {
     return this.companies;

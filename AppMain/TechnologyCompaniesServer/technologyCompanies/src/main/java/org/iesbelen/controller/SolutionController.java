@@ -1,4 +1,5 @@
 package org.iesbelen.controller;
+import java.util.List;
 import java.util.Optional;
 import org.iesbelen.model.Solution;
 import org.iesbelen.records.solution.SolutionListRequest;
@@ -17,8 +18,8 @@ public class SolutionController {
     
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public SolutionListRequest list(){
-        return new SolutionListRequest(solutionService.getAll());
+    public List<Solution> list(){
+        return (solutionService.getAll());
     }
 
     @GetMapping("{id}")

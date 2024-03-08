@@ -9,13 +9,14 @@ import { RouterLink } from '@angular/router';
 import { ContactComponent } from "../contact/contact.component";
 import { SummaryAllCompaniesComponent } from "../summary-all-companies/summary-all-companies.component";
 import { FooterComponent } from "../footer/footer.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [NavbarComponent, SolutionCardComponent, CarouselModule, RouterLink, ContactComponent, SummaryAllCompaniesComponent, FooterComponent]
+    imports: [CommonModule, NavbarComponent, SolutionCardComponent, CarouselModule, RouterLink, ContactComponent, SummaryAllCompaniesComponent, FooterComponent]
 })
 export class HomeComponent implements OnInit {
     private solutionService:SolutionService = inject(SolutionService);
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        
         this.loadCompanyMostAnualIncomme()
         this.loadCompanyMostEmployees()
         this.loadSolutions()    

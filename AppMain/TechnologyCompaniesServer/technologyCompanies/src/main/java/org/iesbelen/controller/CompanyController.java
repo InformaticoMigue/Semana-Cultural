@@ -1,5 +1,6 @@
 package org.iesbelen.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.iesbelen.model.Company;
@@ -19,8 +20,8 @@ public class CompanyController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public CompanyListRequest list(){
-        return new CompanyListRequest(companyService.getAll());
+    public List<Company> list(){
+        return companyService.getAll();
     }
 
     @GetMapping("{id}")

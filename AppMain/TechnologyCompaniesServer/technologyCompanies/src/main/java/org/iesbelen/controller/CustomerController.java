@@ -26,8 +26,8 @@ public class CustomerController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public CustomerListRequestDto list(){
-        return new CustomerListRequestDto(this.customerService.getAll()
+    public List<CustomerDTO> list(){
+        return (this.customerService.getAll()
                 .stream()
                 .map(customer -> {
                     List<ProjectDTO> projectDTOS = customer.getProjects()

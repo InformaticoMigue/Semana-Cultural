@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CompanyService } from '../../service/company/company.service';
 import { Company } from '../../assets/types/types';
 import { CreateComponent } from "../create/create.component";
+import { DeleteComponent } from "../delete/delete.component";
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CreateComponent } from "../create/create.component";
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [CreateComponent]
+    imports: [CreateComponent, DeleteComponent]
 })
 export class HomeComponent implements OnInit {
   companies!:Company[];

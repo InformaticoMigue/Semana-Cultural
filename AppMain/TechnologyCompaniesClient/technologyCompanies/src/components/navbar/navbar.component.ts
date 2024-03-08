@@ -32,7 +32,6 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onScroll() {
-
     if (window.scrollY > 170) {
       this.userHideNavbar = true;
     }else{

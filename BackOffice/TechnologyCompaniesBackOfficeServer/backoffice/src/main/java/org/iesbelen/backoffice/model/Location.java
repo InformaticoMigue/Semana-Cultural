@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +17,7 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "location_id")
     private long id;
-    
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
         name = "company_id",

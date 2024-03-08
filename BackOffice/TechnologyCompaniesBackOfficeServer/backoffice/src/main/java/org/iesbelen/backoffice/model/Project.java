@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
@@ -28,7 +30,7 @@ public class Project {
     
     @Column(name = "end_date", nullable = true)
     private LocalDate endDate;
-    
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
         name = "customer_id", 
@@ -36,7 +38,7 @@ public class Project {
         foreignKey = @ForeignKey(name = "FK_customer_project"))
     @JsonIgnore
     private Customer customer;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
         name = "company_id", 

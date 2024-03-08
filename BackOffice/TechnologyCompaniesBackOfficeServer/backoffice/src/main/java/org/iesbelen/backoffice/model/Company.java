@@ -3,6 +3,8 @@ package org.iesbelen.backoffice.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -38,16 +40,21 @@ public class Company {
     @Column(name = "country_of_origin")
     private String countryOfOrigin;
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private List<Customer> customers;
 
+
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToMany
     @JoinTable(
-        name = "Company_Service",
-        joinColumns = @JoinColumn(name = "company_id"),
-        inverseJoinColumns = @JoinColumn(name = "service_id")
+            name = "Company_Service",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id")
     )
     private List<Solution> solutions;
+
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private List<Location> locations;
 
